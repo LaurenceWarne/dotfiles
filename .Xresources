@@ -1,0 +1,64 @@
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=15,xft:Inconsolata\ for\ Powerline:pixelsize=15
+
+URxvt.scrollBar: false
+
+!! Perl Extensions
+! See https://wiki.archlinux.org/index.php/rxvt-unicode#Perl_extensions 
+URxvt.perl-ext-common: default,tabbedex,clipboard
+
+!! Keybindings
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-w: perl:clipboard:copy
+URxvt.keysym.C-y: perl:clipboard:paste
+! See https://github.com/mina86/urxvt-tabbedex or
+! $man urxvt-tabbed
+! for more info
+URxvt.keysym.M-l: perl:tabbedex:new_tab
+URxvt.keysym.M-0x3b: perl:tabbedex:next_tab
+URxvt.keysym.M-j: perl:tabbedex:prev_tab
+URxvt.keysym.Control-w: perl:tabbedex:kill_tab
+
+!! Colorscheme
+
+! special
+URxvt.foreground: #93a1a1
+! True transparency
+URxvt.depth: 32
+URxvt.background: rgba:1400/1c00/2100/ee00
+
+URxvt.transparent:   true
+URxvt.shading:       20
+
+URxvt.cursorColor: #afbfbf
+
+! black
+URxvt.color0: #263640
+URxvt.color8: #4a697d
+
+! red
+URxvt.color1: #d12f2c
+URxvt.color9: #fa3935
+
+! green
+URxvt.color2: #66CD00
+URxvt.color10: #a4bd00
+
+! yellow
+URxvt.color3: #b08500
+URxvt.color11: #d9a400
+
+! blue
+URxvt.color4: #2587cc
+URxvt.color12: #2ca2f5
+
+! magenta
+URxvt.color5: #696ebf
+URxvt.color13: #8086e8
+
+! cyan
+URxvt.color6: #289c93
+URxvt.color14: #33c5ba
+
+! white
+URxvt.color7: #bfbaac
+URxvt.color15: #fdf6e3
