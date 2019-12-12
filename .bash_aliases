@@ -6,13 +6,17 @@ alias e="echo"
 alias c="cat"
 alias mkdir="mkdir -p"
 alias g="./gradlew"
-alias x="xrdb ~/.Xresources"
+alias xres="xrdb ~/.Xresources"
+alias rmd="rm -rf"
 
 ## Cool Stuff
 # See https://github.com/chubin/wttr.in
 alias weather="curl -L wttr.in"
 alias wthr="curl -L wttr.in"
 alias matrix="cmatrix -B"
+alias github-preview="grip"
+alias sbcl="rlwrap sbcl"
+alias gl="glances"
 
 ## Pipes
-alias G="| grep"
+alias -g G="| grep"

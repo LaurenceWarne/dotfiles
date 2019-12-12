@@ -50,6 +50,6 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export PROJECT_HOME=$HOME/projects
 export ANDROID_HOME=$HOME/Android/Sdk
 # Some reason /sbin not in path
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/sbin:$HOME/.npm-global/bin:
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/sbin:$HOME/.npm-global/bin:/opt/bin:
 export WINEARCH=win32
 source /usr/local/bin/virtualenvwrapper.sh

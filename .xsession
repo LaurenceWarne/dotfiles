@@ -13,7 +13,7 @@ setxkbmap lw_custom
 xrdb ~/.Xresources
 
 # Allows us to use touchpad and keyboard simultaneously
-xinput --set-prop 11 298 0
+xinput --set-prop 11 300 0
 
 # Sets background
 feh --bg-scale ~/Pictures/distant-nebula-wallpaper-hd.jpg
