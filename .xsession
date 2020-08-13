@@ -18,6 +18,9 @@ xinput --set-prop 11 300 0
 # Sets background
 feh --bg-scale ~/Pictures/distant-nebula-wallpaper-hd.jpg
 
+# Cut out blue colours at night
+redshift &
+
 xset +fp /home/laurencewarne/.local/share/fonts
 xset fp rehash
 

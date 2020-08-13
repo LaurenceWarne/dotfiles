@@ -180,6 +180,19 @@ mode "$mode_launcher" {
     bindsym Return mode "default"
 }
 
+set $game_launcher Launch: [m]inecraft [d]warf-fortress [c]ataclysm-dda [y]gopro
+bindsym $mod+g mode "$game_launcher"
+
+mode "$game_launcher" {
+    bindsym m exec minecraft
+    bindsym d exec dwarf-fortress
+    bindsym c exec cdda
+    bindsym y exec ygopro
+
+    bindsym Escape mode "default"
+    bindsym Return mode "default"
+}
+
 # Disable window title bars
 for_window [class=".*"] border pixel 0
 
