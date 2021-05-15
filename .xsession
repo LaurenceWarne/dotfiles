@@ -21,6 +21,10 @@ feh --bg-scale ~/Pictures/distant-nebula-wallpaper-hd.jpg
 # Cut out blue colours at night
 redshift &
 
+# launch a D-Bus system daemon https://www.freedesktop.org/wiki/Software/dbus/
+eval $(dbus-launch)
+export DBUS_SESSION_BUS_ADDRESS
+
 xset +fp /home/laurencewarne/.local/share/fonts
 xset fp rehash
 

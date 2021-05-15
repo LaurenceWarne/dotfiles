@@ -1,6 +1,9 @@
 [user]
-	name = lWarne
-	email = laurencewarne@gmail.com
+    name = lWarne
+    email = laurencewarne@gmail.com
+
+[url "ssh://git@github.com/"]
+    insteadOf = https://github.com/
 
 [alias]
     # one-line log
