@@ -1,0 +1,11 @@
+// slightly edited version from the basic layout in /usr/share/X11/xkb/symbols/gb
+
+default  partial alphanumeric_keys
+xkb_symbols "lw_custom1" {
+
+    include "gb"
+
+    name[Group1]="LW custom keymap";
+
+    include "level3(ralt_alt)"
+};
