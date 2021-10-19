@@ -27,6 +27,10 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 
-eval "$(ssh-agent -s)"
-
-exec bash ~/bin/clidis
+if ! xset q &>/dev/null; then
+    echo "No X server at \$DISPLAY [$DISPLAY]" >&2
+    eval "$(ssh-agent -s)"
+    if [[ -f "~/bin/clidis" ]]; then
+	exec bash ~/bin/clidis
+    fi
+fi
