@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # .zshrc is for interactive shell configuration. You set options for
 # the interactive shell there with the setopt and unsetopt commands.
 # You can also load shell modules, set your history options, change
@@ -6,50 +13,31 @@
 # (e.g. $LS_COLORS).
 
 
-source ~/bin/antigen.zsh
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 export TERM="xterm-256color"
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+source /usr/local/bin/virtualenvwrapper.sh
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle autojump
-antigen bundle colored-man-pages
-antigen bundle django
-antigen bundle git
-antigen bundle gradle
-antigen bundle pip
-antigen bundle python
-antigen bundle shrink-path
+PATH="/home/laurencewarne/perl5/bin${PATH:+:${PATH}}"
+PATH="$PATH:/home/laurencewarne/.local/share/coursier/bin"
+export PATH
+PERL5LIB="/home/laurencewarne/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/laurencewarne/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/laurencewarne/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/laurencewarne/perl5"; export PERL_MM_OPT;
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Load the theme.
-antigen theme bhilburn/powerlevel9k powerlevel9k
+source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 
-# powerlevel9k config
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir virtualenv vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
-
-POWERLEVEL9K_CONTEXT_TEMPLATE=%F{green}%n@%m
-
-# Tell Antigen that you're done.
-antigen apply
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Load aliases
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
-# Export some environment variables
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
-export PROJECT_HOME=$HOME/projects
-export ANDROID_HOME=$HOME/Android/Sdk
-# Some reason /sbin not in path
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/sbin:$HOME/.npm-global/bin:/opt/bin:
-export WINEARCH=win32
-source /usr/local/bin/virtualenvwrapper.sh
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/laurencewarne/.sdkman"
+[[ -s "/home/laurencewarne/.sdkman/bin/sdkman-init.sh" ]] && source "/home/laurencewarne/.sdkman/bin/sdkman-init.sh"
+[ -f "/home/laurencewarne/.ghcup/env" ] && source "/home/laurencewarne/.ghcup/env" # ghcup-env
