@@ -8,6 +8,10 @@ alias mkdir="mkdir -p"
 alias g="./gradlew"
 alias xres="xrdb ~/.Xresources"
 alias rmd="rm -rf"
+alias j='fasd_cd -d'
+alias cp='cp -f'
+alias rm='rm -f'
+alias lpstat='lpstat -l'
 
 ## Cool Stuff
 # See https://github.com/chubin/wttr.in
