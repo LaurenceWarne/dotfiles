@@ -3,13 +3,14 @@ URxvt.font: xft:DejaVu Sans Mono:pixelsize=15, xft:Inconsolata\ for\ Powerline:p
 URxvt.scrollBar: false
 
 !! Perl Extensions
-! See https://wiki.archlinux.org/index.php/rxvt-unicode#Perl_extensions 
-URxvt.perl-ext-common: default,tabbedex,clipboard
+! See https://wiki.archlinux.org/index.php/rxvt-unicode#Perl_extensions
+URxvt.perl-ext-common: default,tabbedex
 
 !! Keybindings
 URxvt.clipboard.autocopy: true
-URxvt.keysym.M-w: perl:clipboard:copy
-URxvt.keysym.C-y: perl:clipboard:paste
+!! Since version 9.20 rxvt-unicode natively supports copying to and pasting from the CLIPBOARD buffer with the Ctrl-Meta-c and Ctrl-Meta-v key bindings
+URxvt.keysym.M-w: eval:selection_to_clipboard
+URxvt.keysym.C-y: eval:paste_clipboard
 ! See https://github.com/mina86/urxvt-tabbedex or
 ! $man urxvt-tabbed
 ! for more info
