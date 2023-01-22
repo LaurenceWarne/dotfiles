@@ -186,7 +186,7 @@ mode "$game_launcher" {
     bindsym m exec minecraft
     bindsym d exec dwarf-fortress
     bindsym c exec cdda
-    bindsym s exec streamlink
+    bindsym s exec streamlink-gui
 
     bindsym Escape mode "default"
     bindsym Return mode "default"

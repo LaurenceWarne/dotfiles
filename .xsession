@@ -7,6 +7,9 @@
 # the same X environment to be presented  whether  startx,  xdm,  or
 # xinit is used to start the X session.
 
+# This file is run by the /etc/X11/Xsession script when an X session
+# is begun.  Note scripts in /etc/X11/Xsession.d/ are also run.
+
 # `exec` run with no args and a redirect writes all stdout/err to specified stream
 exec &> ~/xsession.log
 

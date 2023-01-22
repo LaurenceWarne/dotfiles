@@ -86,6 +86,10 @@ Soft link the config directory to the corresponding directory in dotfiles:
 ln -s /home/laurencewarne/projects/dotfiles/.config/polybar ~/.config/polybar
 ```
 
+# SSH
+
+Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args G agent` or `echo $SSH_AGENT_PID`.  You can add a key to the agent using `ssh-add ~/.ssh/id_ed25519` for example.
+
 ## Display Manager
 
 Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  However,  a display manager like [ly](https://github.com/fairyglade/ly) can be configured to run `.xinitrc`, though you will need to change the `xinitrc` parameter in `/etc/ly/config.ini` to `~/.xsession` (and make `~.xsession` executable if necessary).
