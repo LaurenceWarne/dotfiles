@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # This file is run by using the startx command with NO client program
 
 # from the startx manpage:
@@ -5,6 +6,13 @@
 # in  the .xinitrc file should go in .xsession instead; this permits
 # the same X environment to be presented  whether  startx,  xdm,  or
 # xinit is used to start the X session.
+
+# `exec` run with no args and a redirect writes all stdout/err to specified stream
+exec &> ~/xsession.log
+
+# launch a D-Bus system daemon https://www.freedesktop.org/wiki/Software/dbus/
+#eval $(dbus-launch)
+#export DBUS_SESSION_BUS_ADDRESS
 
 # Set keyboard layout to my custom layout which remaps altgr to alt
 setxkbmap lw_custom
@@ -16,17 +24,14 @@ xrdb ~/.Xresources
 xinput --set-prop 12 300 0
 
 # Sets background
-feh --bg-scale ~/Pictures/distant-nebula-wallpaper-hd.jpg
+feh --bg-scale ~/Pictures/background.jpg
 
 # Cut out blue colours at night
 redshift &
 
-# launch a D-Bus system daemon https://www.freedesktop.org/wiki/Software/dbus/
-eval $(dbus-launch)
-export DBUS_SESSION_BUS_ADDRESS
-
 xset +fp /home/laurencewarne/.local/share/fonts
 xset fp rehash
+xset b off
 
 #####################################################################################################
 # For this next snippet check out:								    #

@@ -1,9 +1,9 @@
 # Setup
 
-Install stuff:
+The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install rxvt-unicode polybar
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev xdotool logrotate rxvt-unicode polybar feh redshift i3
 ```
 
 ## Custom Keyboard Layout
@@ -77,3 +77,17 @@ ln ~/projects/dotfiles/.zshrc ~/.zshrc
 ```
 
 Run `p10k configure` to configure powerlevel10k.
+
+## polybar
+
+Soft link the config directory to the corresponding directory in dotfiles:
+
+```bash
+ln -s /home/laurencewarne/projects/dotfiles/.config/polybar ~/.config/polybar
+```
+
+## Display Manager
+
+Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  However,  a display manager like [ly](https://github.com/fairyglade/ly) can be configured to run `.xinitrc`, though you will need to change the `xinitrc` parameter in `/etc/ly/config.ini` to `~/.xsession` (and make `~.xsession` executable if necessary).
+
+You may also have to disable `ibus` which may reset your keyboard layout after a `setxkbmap` call.

@@ -166,39 +166,46 @@ bindsym $mod+r mode "resize"
 
 # Press $mod+o followed by either f, s, Escape or Return to launch firefox,
 # steam or return to the default mode, respectively.
-set $mode_launcher Launch: [e]macs [f]irefox [q]utebrowser [m]usic=spotify [s]team
+set $mode_launcher Launch: [e]macs [f]irefox [m]usic=vlc [s]team
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
     bindsym e exec emacs
     bindsym f exec firefox
-    bindsym q exec qutebrowser
-    bindsym m exec spotify
+    bindsym m exec "vlc --no-playlist-autostart ~/Music/*"
     bindsym s exec steam
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
 
-set $game_launcher Launch: [m]inecraft [d]warf-fortress [c]ataclysm-dda [y]gopro
-bindsym $mod+g mode "$game_launcher"
+set $game_launcher Launch: [m]inecraft [d]warf-fortress [c]ataclysm-dda [s]treamlink
+bindsym $mod+p mode "$game_launcher"
 
 mode "$game_launcher" {
     bindsym m exec minecraft
     bindsym d exec dwarf-fortress
     bindsym c exec cdda
-    bindsym y exec ygopro
+    bindsym s exec streamlink
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
 }
+
+# You can find the key name for any key using `xev`
+bindsym $mod+equal exec pavucontrol
+# Use `xprop` to get the class (it's the second string under WM_CLASS(STRING))
+for_window [class="^Pavucontrol$"] floating enable
+# for_window [class="^Pavucontrol$"] border pixel 0
+for_window [class="^Pavucontrol$"] resize set 350 300
+for_window [class="^Pavucontrol$"] position 100ppt 100ppt
 
 # Disable window title bars
 for_window [class=".*"] border pixel 0
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id i3-msg 'workspace 9; exec qutebrowser; exec urxvt;'
+exec --no-startup-id i3-msg 'workspace 9; exec urxvt;'
 exec --no-startup-id i3-msg 'workspace 8; exec firefox; exec urxvt; workspace 0'
 exec --no-startup-id i3-msg 'workspace 0; exec emacs'
 
