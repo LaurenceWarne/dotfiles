@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 # This file is run by using the startx command with NO client program
 
 # from the startx manpage:

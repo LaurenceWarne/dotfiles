@@ -19,7 +19,7 @@ export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export PROJECT_HOME=$HOME/projects
 export ANDROID_HOME=$HOME/Android/Sdk
 # Some reason /sbin not in path
-export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/sbin:$HOME/.npm-global/bin:/opt/bin:/snap/bin:$HOME/.cargo/bin:$PATH:$HOME/.ghcup/bin
+export PATH=$PATH:$HOME/bin:$HOME/.local/bin:/sbin:$HOME/.npm-global/bin:/opt/bin:/snap/bin:$HOME/.cargo/bin:$PATH:$HOME/.ghcup/bin:/usr/share/sagemath/bin
 export WINEARCH=win32
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib
 

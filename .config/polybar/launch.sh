@@ -10,7 +10,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch bar1 and bar2
 
-if [ $1 == "--timeless" ];
+if [[ $1 == "--timeless" ]];
 then
   echo "doing timeless"
   polybar top -c ~/.config/polybar/config-top-timeless.ini &

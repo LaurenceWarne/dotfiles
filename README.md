@@ -3,7 +3,7 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev xdotool logrotate rxvt-unicode polybar feh redshift i3
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3
 ```
 
 ## Custom Keyboard Layout
@@ -28,7 +28,7 @@ You probably already have `DejaVu Sans Mono`.  First enable bitmapped fonts:
 sudo dpkg-reconfigure fontconfig-config
 ```
 
-Install Powerline, Nerd, tamsyn, siji and fontawesome:
+Install Powerline, Nerd, Iosevka, tamsyn, siji and fontawesome:
 
 ```bash
 mkdir -p ~/.local/share/fonts/{open,true}type &&\
@@ -36,7 +36,8 @@ mkdir -p ~/.local/share/fonts/{open,true}type &&\
 	(cd /tmp/ && git clone https://github.com/stark/siji && cd siji && ./install.sh) &&\
 	curl -X GET 'http://www.fial.com/~scott/tamsyn-font/download/tamsyn-font-1.11.tar.gz' | tar --gzip -xv -C ~/.local/share/fonts/ &&\
 	mv ~/.local/share/fonts/{tamsyn-font*/*.pcf,} && rm -rf ~/.local/share/fonts/tamsyn-font* &&\
-	sudo apt install fonts-font-awesome fonts-powerline
+	(cd /tmp/ && curl -L -X GET https://github.com/be5invis/Iosevka/releases/download/v17.0.4/ttf-iosevka-17.0.4.zip >| ttf-iosevka-17.0.4.zip && unzip ttf-iosevka-17.0.4.zip && mv -fv iosevka*.ttf ~/.local/share/fonts/truetype) &&\
+	sudo apt install fonts-font-awesome fonts-powerline &&\
 	fc-cache -fv
 ```
 
@@ -86,12 +87,14 @@ Soft link the config directory to the corresponding directory in dotfiles:
 ln -s /home/laurencewarne/projects/dotfiles/.config/polybar ~/.config/polybar
 ```
 
+You want to change `module/adapter-network`/`interface` in `modules.ini`.
+
 # SSH
 
-Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args G agent` or `echo $SSH_AGENT_PID`.  You can add a key to the agent using `ssh-add ~/.ssh/id_ed25519` for example.
+Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args G agent` or `echo $SSH_AGENT_PID`.  You can add a key to the agent using `ssh-add ~/.ssh/id_ed25519` for example.  To persist this between restarts, you may need to edit `~/.ssh/config`, see [this](https://stackoverflow.com/a/41145954/10930142) SO post for more information.
 
 ## Display Manager
 
-Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  However,  a display manager like [ly](https://github.com/fairyglade/ly) can be configured to run `.xinitrc`, though you will need to change the `xinitrc` parameter in `/etc/ly/config.ini` to `~/.xsession` (and make `~.xsession` executable if necessary).
+Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.
 
-You may also have to disable `ibus` which may reset your keyboard layout after a `setxkbmap` call.
+You may also have to disable `ibus` which may reset your keyboard layout after a `setxkbmap` call.  The `Xorg` log is located at `/var/log/Xorg.0.log`.

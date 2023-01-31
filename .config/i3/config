@@ -205,9 +205,9 @@ for_window [class=".*"] border pixel 0
 
 # Start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-exec --no-startup-id i3-msg 'workspace 9; exec urxvt;'
-exec --no-startup-id i3-msg 'workspace 8; exec firefox; exec urxvt; workspace 0'
-exec --no-startup-id i3-msg 'workspace 0; exec emacs'
+exec --no-startup-id i3-msg 'workspace 9; layout tabbed; exec urxvt;'
+exec --no-startup-id i3-msg 'workspace 8; layout tabbed; exec firefox; exec urxvt; workspace 0'
+exec --no-startup-id i3-msg 'workspace 0; layout tabbed; exec emacs'
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
