@@ -87,7 +87,7 @@ Soft link the config directory to the corresponding directory in dotfiles:
 ln -s /home/laurencewarne/projects/dotfiles/.config/polybar ~/.config/polybar
 ```
 
-You want to change `module/adapter-network`/`interface` in `modules.ini`.
+You may want to change `module/adapter-network`/`interface` in `modules.ini`, and/or configure `modules-right` in `config-bottom.ini` to use `wired-network` instead of `adapter-network`.
 
 # SSH
 
