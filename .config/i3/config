@@ -129,7 +129,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 
 # bind print screen key
-bindsym Print exec --no-startup-id scrot -s# ~/Pictures/screenshots/%d-%m-%Y-%T-screenshot.png
+bindsym Print exec gnome-screenshot -i 
+#bindsym Print exec --no-startup-id scrot -s# ~/Pictures/screenshots/%d-%m-%Y-%T-screenshot.png
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

@@ -3,7 +3,13 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath
+```
+
+Python stuff:
+
+```bash
+python3 -m pip install --user pipx ipython && pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks
 ```
 
 ## Custom Keyboard Layout
@@ -98,3 +104,9 @@ Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args
 Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.
 
 You may also have to disable `ibus` which may reset your keyboard layout after a `setxkbmap` call.  The `Xorg` log is located at `/var/log/Xorg.0.log`.
+
+## Random Stuff
+
+- [sdkman](https://sdkman.io/): `curl -s "https://get.sdkman.io" | bash`
+- [Ammonite](http://ammonite.io/#InstallationonLinux): `sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.6/2.13-2.5.6) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm'`
+- [coursier](https://get-coursier.io/docs/cli-installation): `curl -fL "https://github.com/coursier/launchers/raw/master/cs-$(uname -m)-pc-linux.gz" | gzip -d > ~/bin/cs && chmod +x ~/bin/cs && ~/bin/cs setup`
