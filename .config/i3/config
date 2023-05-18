@@ -167,7 +167,7 @@ bindsym $mod+r mode "resize"
 
 # Press $mod+o followed by either f, s, Escape or Return to launch firefox,
 # steam or return to the default mode, respectively.
-set $mode_launcher Launch: [e]macs [f]irefox [m]usic=vlc [s]team
+set $mode_launcher Launch: [e]macs [f]irefox [m]usic=vlc [s]team [z]oom
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
@@ -175,6 +175,7 @@ mode "$mode_launcher" {
     bindsym f exec firefox
     bindsym m exec "vlc --no-playlist-autostart ~/Music/*"
     bindsym s exec steam
+    bindsym z exec zoom
 
     bindsym Escape mode "default"
     bindsym Return mode "default"

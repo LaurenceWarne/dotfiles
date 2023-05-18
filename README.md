@@ -3,7 +3,7 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath slim network-manager vlc cowsay
 ```
 
 Python stuff:
