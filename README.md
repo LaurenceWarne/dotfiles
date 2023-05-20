@@ -9,7 +9,7 @@ sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool log
 Python stuff:
 
 ```bash
-python3 -m pip install --user pipx ipython && pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks
+python3 -m pip install --user pipx ipython && pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli
 ```
 
 ## Custom Keyboard Layout
