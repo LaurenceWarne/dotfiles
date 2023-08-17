@@ -6,6 +6,12 @@ The following describes setup for a Debian-based system.  Install stuff:
 sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath slim network-manager vlc cowsay
 ```
 
+Set shell:
+
+```bash
+chsh -s zsh
+```
+
 Python stuff:
 
 ```bash
@@ -59,6 +65,13 @@ Install the `tabbedex` extension:
 
 ```bash
 mkdir -p $HOME/.urxvt/ext && curl -X GET https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex > $HOME/.urxvt/ext/tabbedex
+```
+
+Hard link `.Xresources`:
+
+```bash
+ln ~/projects/dotfiles/.Xresources ~/.Xresources
+xrdb ~/.Xresources
 ```
 
 ## ZSH

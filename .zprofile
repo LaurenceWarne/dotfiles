@@ -34,3 +34,5 @@ if ! xset q &>/dev/null; then
 	exec bash ~/bin/clidis
     fi
 fi
+
+export PATH="$PATH:/home/laurencewarne/.cache/scalacli/local-repo/bin/scala-cli"
