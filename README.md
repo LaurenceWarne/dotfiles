@@ -3,7 +3,7 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath slim network-manager vlc cowsay
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm
 ```
 
 Set shell:
@@ -71,6 +71,7 @@ Hard link `.Xresources`:
 
 ```bash
 ln ~/projects/dotfiles/.Xresources ~/.Xresources
+ln ~/projects/dotfiles/.Xdefaults ~/.Xdefaults  # For Wayland see https://wiki.archlinux.org/title/Sway#Xresources
 xrdb ~/.Xresources
 ```
 
@@ -110,11 +111,11 @@ You may want to change `module/adapter-network`/`interface` in `modules.ini`, an
 
 # SSH
 
-Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args G agent` or `echo $SSH_AGENT_PID`.  You can add a key to the agent using `ssh-add ~/.ssh/id_ed25519` for example.  To persist this between restarts, you may need to edit `~/.ssh/config`, see [this](https://stackoverflow.com/a/41145954/10930142) SO post for more information.
+Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args | grep agent` or `echo $SSH_AGENT_PID`.  You can add a key to the agent using `ssh-add ~/.ssh/id_ed25519` for example.  To persist this between restarts, you may need to edit `~/.ssh/config`, see [this](https://stackoverflow.com/a/41145954/10930142) SO post for more information.
 
 ## Display Manager
 
-Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.
+Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  ~However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.~
 
 You may also have to disable `ibus` which may reset your keyboard layout after a `setxkbmap` call.  The `Xorg` log is located at `/var/log/Xorg.0.log`.
 
