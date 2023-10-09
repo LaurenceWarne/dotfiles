@@ -40,14 +40,16 @@ You probably already have `DejaVu Sans Mono`.  First enable bitmapped fonts:
 sudo dpkg-reconfigure fontconfig-config
 ```
 
-Install Powerline, Nerd, Iosevka, tamsyn, siji and fontawesome:
+Install Powerline, Nerd, Iosevka, Tamzen, siji and fontawesome:
 
 ```bash
 mkdir -p ~/.local/share/fonts/{open,true}type &&\
 	curl -X GET "https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf" >| ~/.local/share/fonts/truetype/Hack\ Regular\ Nerd\ Font\ Complete.ttf &&\
-	(cd /tmp/ && git clone https://github.com/stark/siji && cd siji && ./install.sh) &&\
-	curl -X GET 'http://www.fial.com/~scott/tamsyn-font/download/tamsyn-font-1.11.tar.gz' | tar --gzip -xv -C ~/.local/share/fonts/ &&\
-	mv ~/.local/share/fonts/{tamsyn-font*/*.pcf,} && rm -rf ~/.local/share/fonts/tamsyn-font* &&\
+	# Tamzen: https://github.com/sunaku/tamzen-font
+	curl -L -X GET https://github.com/sunaku/tamzen-font/archive/refs/tags/Tamzen-1.11.6.tar.gz | tar --gzip -xv -C ~/.local/share/fonts/ &&\
+	# Siji: https://github.com/fauno/siji
+	curl -X GET https://github.com/fauno/siji/raw/master/ttf/siji.ttf > ~/.local/share/fonts/siji.ttf &&\
+	# Ioseveka: https://github.com/be5invis/Iosevka
 	(cd /tmp/ && curl -L -X GET https://github.com/be5invis/Iosevka/releases/download/v17.0.4/ttf-iosevka-17.0.4.zip >| ttf-iosevka-17.0.4.zip && unzip ttf-iosevka-17.0.4.zip && mv -fv iosevka*.ttf ~/.local/share/fonts/truetype) &&\
 	sudo apt install fonts-font-awesome fonts-powerline &&\
 	fc-cache -fv
@@ -56,8 +58,10 @@ mkdir -p ~/.local/share/fonts/{open,true}type &&\
 Check they're installed correctly with:
 
 ```bash
-fc-list | egrep "Incons|Nerd|Tamsyn|siji"
+fc-list | egrep "Incons|Nerd|Tamzen|siji"
 ```
+
+Generally we want `ttf` fonts as they behave better with scaling.
 
 ## Urxvt
 
@@ -108,6 +112,8 @@ ln -s /home/laurencewarne/projects/dotfiles/.config/polybar ~/.config/polybar
 ```
 
 You may want to change `module/adapter-network`/`interface` in `modules.ini`, and/or configure `modules-right` in `config-bottom.ini` to use `wired-network` instead of `adapter-network`.
+
+Also alter `height` in `config-top.ini` and `config-bottom.ini`, as there seems to be no way to set these based on the font size.
 
 # SSH
 
