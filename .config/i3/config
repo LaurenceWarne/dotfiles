@@ -201,18 +201,16 @@ mode "$game_launcher" {
 }
 
 # You can find the key name for any key using `xev`
-bindsym $mod+equal exec pavucontrol
-# Use `xprop` to get the class (it's the second string under WM_CLASS(STRING))
-for_window [class="^Pavucontrol$"] floating enable
-# for_window [class="^Pavucontrol$"] border pixel 0
-for_window [class="^Pavucontrol$"] resize set 350 300
-for_window [class="^Pavucontrol$"] position 100ppt 100ppt
+bindsym $mod+equal exec pavucontrol  # Also see https://github.com/GeorgeFilipkin/pulsemixer
 
 # Disable window title bars
 for_window [class=".*"] border pixel 0
 
-# Start polybar
+# Generally easier to start these here than any kind of X/DM init script
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-scale ~/Pictures/background.jpg
+exec_always --no-startup-id redshift
+
 exec --no-startup-id i3-msg 'workspace 9; layout tabbed; exec urxvt;'
 exec --no-startup-id i3-msg 'workspace 8; layout tabbed; exec firefox; exec urxvt; workspace 0'
 exec --no-startup-id i3-msg 'workspace 0; layout tabbed; exec emacs'
