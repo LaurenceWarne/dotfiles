@@ -3,7 +3,7 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython
 ```
 
 Set shell:
@@ -15,8 +15,10 @@ chsh -s zsh
 Python stuff:
 
 ```bash
-python3 -m pip install --user pipx ipython && pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli
+pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli sacad streamlink pulsemixer
 ```
+
+Note since Debian 12, [Debian declares](https://salsa.debian.org/python-team/packages/python-pip/-/blob/master/debian/NEWS) the system Python (3.11) version to be externally managed in adherence to [PEP-686](https://peps.python.org/pep-0668/), disallowing package installation outside virtual envs.  Recommended is to use `pipx` for packages with entry points or install modules using the package manager, e.g. `sudo apt install python3-numpy`.
 
 ## Custom Keyboard Layout
 
@@ -34,11 +36,7 @@ setxkbmap lw_custom
 
 ## Fonts
 
-You probably already have `DejaVu Sans Mono`.  First enable bitmapped fonts:
-
-```bash
-sudo dpkg-reconfigure fontconfig-config
-```
+You probably already have `DejaVu Sans Mono`.
 
 Install Powerline, Nerd, Iosevka, Tamzen, siji and fontawesome:
 
@@ -121,7 +119,7 @@ Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args
 
 ## Display Manager
 
-Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm.  ~However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.~
+~Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm~ Switched to `i3` which just saves a lot of hassle.  ~However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.~
 
 You may also have to disable `ibus` which may reset your keyboard layout after a `setxkbmap` call.  The `Xorg` log is located at `/var/log/Xorg.0.log`.
 
