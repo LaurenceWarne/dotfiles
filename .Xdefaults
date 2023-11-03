@@ -1,7 +1,7 @@
 ! Remove for small resolutions, note the default dpi is 96
 Xft.dpi: 192
 
-URxvt.font: xft:DejaVu Sans Mono:size=15, xft:Inconsolata\ for\ Powerline:pixelsize=15, xft:Hack Nerd Font:style=Regular:size=11
+URxvt.font: xft:Iosevka:size=15, xft:Inconsolata\ for\ Powerline:pixelsize=15, xft:Hack Nerd Font:style=Regular:size=11
 
 URxvt.scrollBar: false
 
