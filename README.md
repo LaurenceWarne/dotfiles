@@ -128,3 +128,4 @@ You may also have to disable `ibus` which may reset your keyboard layout after a
 - [sdkman](https://sdkman.io/): `curl -s "https://get.sdkman.io" | bash`
 - [Ammonite](http://ammonite.io/#InstallationonLinux): `sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/com-lihaoyi/Ammonite/releases/download/2.5.6/2.13-2.5.6) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm'`
 - [coursier](https://get-coursier.io/docs/cli-installation): `curl -fL "https://github.com/coursier/launchers/raw/master/cs-$(uname -m)-pc-linux.gz" | gzip -d > ~/bin/cs && chmod +x ~/bin/cs && ~/bin/cs setup`
+- [heroic](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest)
