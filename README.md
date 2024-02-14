@@ -3,7 +3,7 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode polybar feh redshift i3 bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop sway waybar slurp grim wlsunset wdisplays
 ```
 
 Set shell:
@@ -28,7 +28,7 @@ Mostly taken from https://askubuntu.com/questions/482678/how-to-add-a-new-keyboa
 curl -X GET https://raw.githubusercontent.com/LaurenceWarne/dotfiles/master/lw_custom | sudo tee /usr/share/X11/xkb/symbols/lw_custom  # sudo curl wouldn't work here since redirection is not part of the execution, tee is a common workaround
 ```
 
-Now check it works using:
+Now check it works using (note not necessary on wayland, we set it in `sway` config there):
 
 ```bash
 setxkbmap lw_custom
@@ -119,7 +119,9 @@ Check if `ssh-agent` has been started by something using `ps -e -o pid,ppid,args
 
 ## Display Manager
 
-~Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm~ Switched to `i3` which just saves a lot of hassle.  ~However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.~
+~Much of the initialization is done in `.xsession`, which isn't run by display managers like gdm~ Switched to ~`i3`~ `sway` which just saves a lot of hassle.  ~However, [SLiM](https://wiki.archlinux.org/title/SLiM) (`sudo apt install slim`) will.  It's themes are located in `/usr/share/slim/themes/` (the theme and other configuration options are located in `/etc/slim.conf`).  I like https://github.com/IvyDowling/slim-theme.~
+
+When using `sddm` make sure to select the correct window manager (e.g. `sway` with `wayland`).
 
 You may also have to disable `ibus` which may reset your keyboard layout after a `setxkbmap` call.  The `Xorg` log is located at `/var/log/Xorg.0.log`.
 
