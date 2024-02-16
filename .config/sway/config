@@ -216,9 +216,9 @@ exec_always --no-startup-id xrdb ~/.Xdefaults
 exec_always --no-startup-id xset +fp ~/.local/share/fonts
 exec_always --no-startup-id xset fp rehash
 
-exec --no-startup-id swagmsg 'workspace 9; exec urxvt; layout tabbed'
-exec --no-startup-id swagmsg 'workspace 8; exec firefox; urxvt; layout tabbed; workspace 0'
-exec --no-startup-id swagmsg 'workspace 0; exec emacs; layout tabbed'
+exec --no-startup-id swaymsg 'workspace 9; exec urxvt; layout tabbed'
+exec --no-startup-id swaymsg 'workspace 8; exec firefox; urxvt; layout tabbed; workspace 0'
+exec --no-startup-id swaymsg 'workspace 0; exec emacs; layout tabbed'
 
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
