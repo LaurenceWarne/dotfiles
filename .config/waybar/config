@@ -29,7 +29,7 @@
 	},
 	
 	"sway/language": {
-	    "format": "{} ",
+	    "format": " {long}",
 	    "min-length": 5,
 	},
 	
@@ -100,9 +100,9 @@
         "name": "bottombar",
         "layer": "top",
         "position": "bottom",
-        "modules-left": ["cpu", "custom/mem", "disk"],
+        "modules-left": ["cpu", "memory", "disk"],
         "modules-center": [],
-        "modules-right": ["disk"],
+        "modules-right": ["network"],
 	"height": 50, // Waybar height (to be removed for auto height)
 
 	"tray": {
@@ -110,22 +110,30 @@
 	    "spacing": 20
 	},
 
-	"custom/mem": {
-	    "format": " {}",
-	    "interval": 2,
-	    "exec": "free -h | awk '/Mem:/{printf $3}'",
-	    "tooltip": false,
+	"memory": {
+	    "format": " {used:0.1f}G",
+	    "interval": 1,
+	    "tooltip-format": "{used:0.1f}G/{total:0.1f}G",
 	},
 
 	"cpu": {
             "format": " {usage}%",
-            "tooltip": false
         },
 
         "disk": {
             "format": "{free}",
             "tooltip-format": "{used} / {total} used"
         },
+
+	"network": {
+	    "format": "{ifname} {bandwidthDownBits} {bandwidthUpBits}",
+	    "format-ethernet": "{ifname}  {bandwidthDownBits} {bandwidthUpBits}",
+	    "format-wifi": " {essid} {ifname} {bandwidthDownBits} {bandwidthUpBits}",
+	    "format-disconnected": "",
+            "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+	    "tooltip-format-ethernet": "{ifname}",
+	    "interval": 1
+	},
 
         "wlr/taskbar": {
             "format": "{icon} {name}",

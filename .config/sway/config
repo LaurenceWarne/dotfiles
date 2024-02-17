@@ -216,8 +216,9 @@ exec_always --no-startup-id xrdb ~/.Xdefaults
 exec_always --no-startup-id xset +fp ~/.local/share/fonts
 exec_always --no-startup-id xset fp rehash
 
+# TODO: How TF do I make each workspace tabbed?
 exec --no-startup-id swaymsg 'workspace 9; exec urxvt; layout tabbed'
-exec --no-startup-id swaymsg 'workspace 8; exec firefox; urxvt; layout tabbed; workspace 0'
+exec --no-startup-id swaymsg 'workspace 8; exec firefox; exec urxvt; layout tabbed; workspace 0'
 exec --no-startup-id swaymsg 'workspace 0; exec emacs; layout tabbed'
 
 #######################################################################
