@@ -3,7 +3,12 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop sway waybar slurp grim wlsunset wdisplays
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop sway waybar slurp grim wlsunset wdisplays mako-notifier
+```
+
+I prefer [mako](https://github.com/emersion/mako) to `dunst`.
+```bash
+sudo apt remove dunst
 ```
 
 Set shell:
@@ -15,7 +20,8 @@ chsh -s zsh
 Python stuff:
 
 ```bash
-pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli sacad streamlink pulsemixer
+pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli sacad streamlink pulsemixer python-lsp-server ruff
+pipx inject python-lsp-server 'python-lsp-server[rope]' pylsp-mypy python-lsp-ruff
 ```
 
 Note since Debian 12, [Debian declares](https://salsa.debian.org/python-team/packages/python-pip/-/blob/master/debian/NEWS) the system Python (3.11) version to be externally managed in adherence to [PEP-686](https://peps.python.org/pep-0668/), disallowing package installation outside virtual envs.  Recommended is to use `pipx` for packages with entry points or install modules using the package manager, e.g. `sudo apt install python3-numpy`.

@@ -100,7 +100,7 @@
         "name": "bottombar",
         "layer": "top",
         "position": "bottom",
-        "modules-left": ["cpu", "memory", "disk"],
+        "modules-left": ["disk", "cpu", "memory"],
         "modules-center": [],
         "modules-right": ["network"],
 	"height": 50, // Waybar height (to be removed for auto height)
@@ -118,6 +118,7 @@
 
 	"cpu": {
             "format": " {usage}%",
+	    "interval": 1
         },
 
         "disk": {

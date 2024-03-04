@@ -221,6 +221,8 @@ exec --no-startup-id swaymsg 'workspace 9; exec urxvt; layout tabbed'
 exec --no-startup-id swaymsg 'workspace 8; exec firefox; exec urxvt; layout tabbed; workspace 0'
 exec --no-startup-id swaymsg 'workspace 0; exec emacs; layout tabbed'
 
+exec mako
+
 #######################################################################
 # automatically start i3-config-wizard to offer the user to create a
 # keysym-based config which used their favorite modifier (alt or windows)
