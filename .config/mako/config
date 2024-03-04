@@ -1,2 +1,9 @@
 font=Iosevka 20
 border-size=5
+format=<b>%a %s</b>\n%b
+width=500
+height=1000
+default-timeout=60
+
+[urgency=high]
+ignore-timeout=1
