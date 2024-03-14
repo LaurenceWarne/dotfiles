@@ -20,7 +20,7 @@ chsh -s zsh
 Python stuff:
 
 ```bash
-pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli sacad streamlink pulsemixer python-lsp-server ruff
+pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli sacad streamlink pulsemixer python-lsp-server ruff dtbell
 pipx inject python-lsp-server 'python-lsp-server[rope]' pylsp-mypy python-lsp-ruff
 ```
 

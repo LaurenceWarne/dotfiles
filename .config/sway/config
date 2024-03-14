@@ -208,19 +208,23 @@ for_window [class=".*"] border pixel 0
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 # https://github.com/swaywm/sway/issues/5732
 exec systemctl --user import-environment
+# https://github.com/EscherMoore/DitchTheBell
+exec dtbell
 # Generally easier to start these here than any kind of X/DM init script
-exec_always --no-startup-id bash -c '! pgrep -x "waybar" && waybar'
-exec_always --no-startup-id swaybg -i ~/Pictures/background.jpg
-exec_always --no-startup-id bash -c '! pgrep -x "wlsunset" && wlsunset -l 53.483959 -L -2.244644 -t 3000 -T 5500'
-exec_always --no-startup-id xset b off
-exec_always --no-startup-id xrdb ~/.Xdefaults
-exec_always --no-startup-id xset +fp ~/.local/share/fonts
-exec_always --no-startup-id xset fp rehash
+exec pkill waybar && waybar
+exec wlsunset -l 53.483959 -L -2.244644 -t 3000 -T 5500
+exec_always swaybg -i ~/Pictures/background.jpg
+exec_always xset b off
+exec_always xrdb ~/.Xdefaults
+exec_always xset +fp ~/.local/share/fonts
+exec_always xset fp rehash
 
 # TODO: How TF do I make each workspace tabbed?
-exec --no-startup-id swaymsg 'workspace 9; exec urxvt; layout tabbed'
-exec --no-startup-id swaymsg 'workspace 8; exec firefox; exec urxvt; layout tabbed; workspace 0'
-exec --no-startup-id swaymsg 'workspace 0; exec emacs; layout tabbed'
+exec swaymsg 'workspace 9; exec urxvt; layout tabbed'
+exec swaymsg 'workspace 8; exec firefox; exec urxvt; layout tabbed; workspace 0'
+exec swaymsg 'workspace 0; exec emacs; layout tabbed'
+
+exec export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
 exec mako
 
