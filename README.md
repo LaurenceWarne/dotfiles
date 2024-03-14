@@ -3,7 +3,7 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop sway waybar slurp grim wlsunset wdisplays mako-notifier
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop sway waybar slurp grim wlsunset wdisplays mako-notifier fonts-symbola
 ```
 
 I prefer [mako](https://github.com/emersion/mako) to `dunst`.

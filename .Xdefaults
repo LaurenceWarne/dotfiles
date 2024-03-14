@@ -1,13 +1,15 @@
 ! Remove for small resolutions, note the default dpi is 96
 Xft.dpi: 192
 
-URxvt.font: xft:Iosevka:size=15, xft:Inconsolata\ for\ Powerline:pixelsize=15, xft:Hack Nerd Font:style=Regular:size=11
+! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters. The first font defines the cell size for characters; other fonts might be smaller, but not (in general) larger. A (hopefully) reasonable default font list is always appended to it; option -fn.
+URxvt.font: xft:Iosevka:size=15, xft:Hack Nerd Font:minspace=false:style=Regular:size=11, xft:FontAwesome:size=6, xft: Symbola
 
 URxvt.scrollBar: false
+URxvt.letterSpace: 1
 
 !! Perl Extensions
 ! See https://wiki.archlinux.org/index.php/rxvt-unicode#Perl_extensions
-URxvt.perl-ext-common: default,tabbedex
+URxvt.perl-ext-common: default,-confirm-paste,tabbedex
 
 !! Keybindings
 URxvt.clipboard.autocopy: true
