@@ -211,7 +211,7 @@ exec systemctl --user import-environment
 # https://github.com/EscherMoore/DitchTheBell
 exec dtbell
 # Generally easier to start these here than any kind of X/DM init script
-exec pkill waybar && waybar
+exec bash -c 'pkill waybar; waybar'
 exec wlsunset -l 53.483959 -L -2.244644 -t 3000 -T 5500
 exec_always swaybg -i ~/Pictures/background.jpg
 exec_always xset b off
