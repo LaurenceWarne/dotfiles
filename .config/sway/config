@@ -209,7 +209,8 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 # https://github.com/swaywm/sway/issues/5732
 exec systemctl --user import-environment
 # https://github.com/EscherMoore/DitchTheBell
-exec dtbell
+# I think it may exit if no internet, so continuously run it
+exec bash -c 'while true; do dtbell; done;'
 # Generally easier to start these here than any kind of X/DM init script
 exec bash -c 'pkill waybar; waybar'
 exec wlsunset -l 53.483959 -L -2.244644 -t 3000 -T 5500

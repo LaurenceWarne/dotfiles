@@ -26,6 +26,8 @@ pipx inject python-lsp-server 'python-lsp-server[rope]' pylsp-mypy python-lsp-ru
 
 Note since Debian 12, [Debian declares](https://salsa.debian.org/python-team/packages/python-pip/-/blob/master/debian/NEWS) the system Python (3.11) version to be externally managed in adherence to [PEP-686](https://peps.python.org/pep-0668/), disallowing package installation outside virtual envs.  Recommended is to use `pipx` for packages with entry points or install modules using the package manager, e.g. `sudo apt install python3-numpy`.
 
+There appears to be issues with `chromium` and `mako` notifications, see [here](https://github.com/void-linux/void-packages/issues/33181) for a solution.  `sudo nano /usr/share/wayland-sessions/sway.desktop` and changing `Exec=sway` to `Exec=dbus-run-session sway` appears to fix it.
+
 ## Custom Keyboard Layout
 
 Mostly taken from https://askubuntu.com/questions/482678/how-to-add-a-new-keyboard-layout-custom-keyboard-layout-definition, first:
