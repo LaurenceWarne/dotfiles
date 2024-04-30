@@ -3,7 +3,7 @@
 The following describes setup for a Debian-based system.  Install stuff:
 
 ```bash
-sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop sway waybar slurp grim wlsunset wdisplays mako-notifier fonts-symbola libjansson virtualenvwrapper bat
+sudo apt install build-essential libpam0g-dev libxcb-xkb-dev sysstat xdotool logrotate rxvt-unicode bat pypy3 zsh htop sagemath network-manager vlc cowsay sddm inxi pavucontrol pipx python3-numpy python3-ipython gnome-screenshot lm-sensors jq radeontop sway waybar slurp grim wlsunset wdisplays mako-notifier fonts-symbola libjansson virtualenvwrapper bat postgresql-15 libgirepository-1.0-dev
 ```
 
 I prefer [mako](https://github.com/emersion/mako) to `dunst`.
@@ -27,11 +27,13 @@ pipx inject python-lsp-server 'python-lsp-server[rope]' pylsp-mypy python-lsp-ru
 Link stuff:
 
 ```bash
+mkdir -p ~/.config/{dtbell,mako,waybar,sway}
 ln ~/projects/dotfiles/.gitconfig ~/.gitconfig
 ln ~/projects/dotfiles/.config/dtbell/config.ini ~/.config/dtbell/config.ini
 ln ~/projects/dotfiles/.config/mako/config ~/.config/mako/config
 ln ~/projects/dotfiles/.config/waybar/config ~/.config/waybar/config
 ln ~/projects/dotfiles/.config/waybar/style.css ~/.config/waybar/style.css
+ln ~/projects/dotfiles/.config/sway/config ~/.config/sway/config
 ```
 
 Note since Debian 12, [Debian declares](https://salsa.debian.org/python-team/packages/python-pip/-/blob/master/debian/NEWS) the system Python (3.11) version to be externally managed in adherence to [PEP-686](https://peps.python.org/pep-0668/), disallowing package installation outside virtual envs.  Recommended is to use `pipx` for packages with entry points or install modules using the package manager, e.g. `sudo apt install python3-numpy`.
