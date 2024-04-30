@@ -28,8 +28,11 @@ Link stuff:
 
 ```bash
 ln ~/projects/dotfiles/.gitconfig ~/.gitconfig
+ln ~/projects/dotfiles/.config/dtbell/config.ini ~/.config/dtbell/config.ini
+ln ~/projects/dotfiles/.config/mako/config ~/.config/mako/config
+ln ~/projects/dotfiles/.config/waybar/config ~/.config/waybar/config
+ln ~/projects/dotfiles/.config/waybar/style.css ~/.config/waybar/style.css
 ```
-
 
 Note since Debian 12, [Debian declares](https://salsa.debian.org/python-team/packages/python-pip/-/blob/master/debian/NEWS) the system Python (3.11) version to be externally managed in adherence to [PEP-686](https://peps.python.org/pep-0668/), disallowing package installation outside virtual envs.  Recommended is to use `pipx` for packages with entry points or install modules using the package manager, e.g. `sudo apt install python3-numpy`.
 
@@ -121,7 +124,7 @@ Run `p10k configure` to configure powerlevel10k.
 Soft link the config directory to the corresponding directory in dotfiles:
 
 ```bash
-ln -s /home/laurencewarne/projects/dotfiles/.config/polybar ~/.config/polybar
+ln -s ~/projects/dotfiles/.config/polybar ~/.config/polybar
 ```
 
 You may want to change `module/adapter-network`/`interface` in `modules.ini`, and/or configure `modules-right` in `config-bottom.ini` to use `wired-network` instead of `adapter-network`.
