@@ -128,6 +128,7 @@ workspace 0 output HDMI-0
 workspace 9 output HDMI-0
 workspace 8 output VGA-0
 
+bindsym $mod+Shift+m exec ~/bin/mute-window.sh
 # bind volume keys
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
