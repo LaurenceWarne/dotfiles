@@ -1,3 +1,5 @@
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -15,10 +17,9 @@ fi
 
 export TERM="xterm-256color"
 
-source /usr/local/bin/virtualenvwrapper.sh
-
 PATH="/home/laurencewarne/perl5/bin${PATH:+:${PATH}}"
-PATH="$PATH:/home/laurencewarne/.local/share/coursier/bin"
+PATH="$PATH:/home/laurencewarne/.local/share/coursier/bin:/home/laurencewarne/bin:/sbin:/home/laurencewarne/.local/bin:/snap/bin:/usr/local/texlive/2021/bin/x86_64-linux"
+[ -d /usr/local/src/node-v16.15.1-linux-x64 ] && PATH="$PATH:/usr/local/src/node-v16.15.1-linux-x64/bin"
 export PATH
 PERL5LIB="/home/laurencewarne/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
 PERL_LOCAL_LIB_ROOT="/home/laurencewarne/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
