@@ -97,7 +97,7 @@
 
 	"custom/amdgpu-vram": {
             "format": "{}",
-            "exec-if": "exit 0",
+            "exec-if": "which radeontop",
             "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py vram",
             "tooltip": true,
 	    "restart-interval": 100,
@@ -106,7 +106,7 @@
 	"custom/amdgpu-usage": {
 	    // https://pictogrammers.com/library/mdi/icon/expansion-card-variant/
             "format": "<b>󰾲</b>  {}%",
-            "exec-if": "exit 0",
+            "exec-if": "which radeontop",
             "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py gpu",
             "tooltip": true,
 	    "restart-interval": 100,
