@@ -12,7 +12,7 @@
 	"name": "topbar",
         "layer": "top",
         "position": "top", 
-	"modules-left": ["sway/language", "sway/window", "keyboard-state", "sway/mode"],
+	"modules-left": ["sway/language", "custom/amdgpu-usage", "custom/amdgpu-vram", "sway/window", "keyboard-state", "sway/mode"],
 	"modules-center": ["sway/workspaces"],
 	"modules-right": ["pulseaudio", "clock"],
 	"tray": {
@@ -93,7 +93,21 @@
 	    "format-alt": "{time} {icon}",
 	    "format-icons": ["", "", "", "", "", "", "", "", "", ""],
 	    "on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
-	}
+	},
+
+	"custom/amdgpu-vram": {
+            "format": "{}",
+            "exec-if": "exit 0",
+            "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py vram",
+            "tooltip": true,
+        },
+
+	"custom/amdgpu-usage": {
+            "format": "{}%",
+            "exec-if": "exit 0",
+            "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py gpu",
+            "tooltip": true,
+        },
     },
 
     {
