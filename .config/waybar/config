@@ -1,5 +1,6 @@
 [
     {
+	// https://github.com/Alexays/Waybar/wiki/Module:-Custom
 	// Config based on:
 	//  https://github.com/qoheniac/config/blob/main/waybar/config
 	//  https://github.com/lgaboury/Sway-Waybar-Install-Script/tree/master/.config/waybar
@@ -12,7 +13,7 @@
 	"name": "topbar",
         "layer": "top",
         "position": "top", 
-	"modules-left": ["sway/language", "custom/amdgpu-usage", "custom/amdgpu-vram", "sway/window", "keyboard-state", "sway/mode"],
+	"modules-left": ["sway/language", "custom/gpu-icon", "custom/amdgpu-usage", "custom/amdgpu-vram", "custom/amdgpu-temperature", "sway/window", "keyboard-state", "sway/mode"],
 	"modules-center": ["sway/workspaces"],
 	"modules-right": ["pulseaudio", "clock"],
 	"tray": {
@@ -95,6 +96,20 @@
 	    "on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
 	},
 
+	"custom/gpu-icon": {
+	    // https://pictogrammers.com/library/mdi/icon/expansion-card-variant/
+            "format": "<b>󰾲</b> ",
+            "tooltip": true,
+        },
+
+	"custom/amdgpu-usage": {
+            "format": "{}%",
+            "exec-if": "which radeontop",
+            "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py gpu",
+            "tooltip": true,
+	    "restart-interval": 100,
+        },
+
 	"custom/amdgpu-vram": {
             "format": "{}",
             "exec-if": "which radeontop",
@@ -103,13 +118,11 @@
 	    "restart-interval": 100,
         },
 
-	"custom/amdgpu-usage": {
-	    // https://pictogrammers.com/library/mdi/icon/expansion-card-variant/
-            "format": "<b>󰾲</b>  {}%",
-            "exec-if": "which radeontop",
-            "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py gpu",
+	"custom/amdgpu-temperature": {
+            "format": "{}°C",
+            "exec": "python3 $HOME/.config/waybar/amdgpu_temperature.py",
             "tooltip": true,
-	    "restart-interval": 100,
+	    "interval": 2,
         },
     },
 
