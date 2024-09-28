@@ -96,17 +96,20 @@
 	},
 
 	"custom/amdgpu-vram": {
-            "format": "{}",
+            "format": "{}",
             "exec-if": "exit 0",
             "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py vram",
             "tooltip": true,
+	    "restart-interval": 100,
         },
 
 	"custom/amdgpu-usage": {
-            "format": "{}%",
+	    // https://pictogrammers.com/library/mdi/icon/expansion-card-variant/
+            "format": "<b>󰾲</b>  {}%",
             "exec-if": "exit 0",
             "exec": "radeontop -d - -i 1 | python3 $HOME/.config/waybar/amdgpu.py gpu",
             "tooltip": true,
+	    "restart-interval": 100,
         },
     },
 
