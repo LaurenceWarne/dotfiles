@@ -1,0 +1,12 @@
+# https://wiki.archlinux.org/title/XDG_MIME_Applications
+[Default Applications]
+text/html=firefox-esr.desktop
+application/pdf=org.gnome.Evince.desktop
+image/gif=org.gnome.eog.desktop
+image/jpeg=org.gnome.eog.desktop
+image/png=org.gnome.eog.desktop
+x-scheme-handler/http=firefox-esr.desktop
+x-scheme-handler/https=firefox-esr.desktop
+x-scheme-handler/about=firefox-esr.desktop
+x-scheme-handler/unknown=firefox-esr.desktop
+x-scheme-handler/discord-694795560288256021=discord-694795560288256021.desktop
