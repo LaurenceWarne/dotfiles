@@ -24,6 +24,14 @@ pipx install pip-run legendary-gl glances mypy tox grip black curses-questions n
 pipx inject python-lsp-server 'python-lsp-server[rope]' pylsp-mypy python-lsp-ruff
 ```
 
+Install rust stuff:
+
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup update
+rustup install amdgpu_top
+```
+
 Link stuff:
 
 ```bash
