@@ -23,6 +23,7 @@ alias sbcl="rlwrap sbcl"
 alias gl="glances"
 alias tron="ssh sshtron.zachlatta.com"
 # https://github.com/sharkdp/bat
+alias bat="batcat"
 alias less="bat"
 alias c="bat"
 
