@@ -211,11 +211,14 @@ exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSO
 exec systemctl --user import-environment
 # https://github.com/EscherMoore/DitchTheBell
 # I think it may exit if no internet, so continuously run it
-exec bash -c 'while true; do dtbell; done;'
+exec bash -c 'while true; do dtbell; sleep 5; done;'
+
 # Generally easier to start these here than any kind of X/DM init script
-exec bash -c 'pkill waybar; waybar'
 exec wlsunset -l 53.483959 -L -2.244644 -t 3000 -T 5500
-exec_always swaybg -i ~/Pictures/background.jpg
+
+# exec_always is like exec, but will be executed again on reload
+exec_always bash -c 'pkill waybar; waybar'
+exec_always bash -c '[ -f ~/Pictures/background.jpg ] && swaybg -i ~/Pictures/background.jpg'
 exec_always xset b off
 exec_always xrdb ~/.Xdefaults
 exec_always xset +fp ~/.local/share/fonts
