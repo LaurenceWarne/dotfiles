@@ -1,17 +1,17 @@
-alias ap="apropos"
-alias ll="ls -alhF"
-alias nano="nano -PSilm"
-alias terminator="terminator -l LW_default"
-alias e="echo"
-#alias c="cat"
-alias mkdir="mkdir -p"
-alias g="./gradlew"
-alias xres="xrdb ~/.Xresources"
-alias rmd="rm -rf"
+alias ap='apropos'
+alias ll='ls -alhF'
+alias nano='nano -PSilm'
+alias e='echo'
+#alias c='cat'
+alias mkdir='mkdir -p'
+alias g='./gradlew'
+alias xres='xrdb ~/.Xresources'
+alias rmd='rm -rf'
 alias j='fasd_cd -d'
 alias cp='cp -f'
 alias rm='rm -f'
 alias lpstat='lpstat -l'
+alias ip='ip -c'
 
 ## Cool Stuff
 # See https://github.com/chubin/wttr.in
