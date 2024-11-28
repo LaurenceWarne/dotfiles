@@ -4,6 +4,12 @@ Xft.dpi: 192
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order when trying to find glyphs for characters. The first font defines the cell size for characters; other fonts might be smaller, but not (in general) larger. A (hopefully) reasonable default font list is always appended to it; option -fn.
 URxvt.font: xft:Iosevka:size=15, xft:Hack Nerd Font:minspace=false:style=Regular:size=11, xft:FontAwesome:size=6, xft: Symbola
 
+
+! https://superuser.com/questions/1415969/how-to-disable-urxvt-autoscroll-on-output
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+
 URxvt.scrollBar: false
 URxvt.letterSpace: 1
 

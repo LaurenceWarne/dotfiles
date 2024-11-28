@@ -38,7 +38,34 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
+#[ -f "/home/laurencewarne/.ghcup/env" ] && source "/home/laurencewarne/.ghcup/env" # ghcup-env
+
+[ -f "/home/laurencewarne/.ghcup/env" ] && source "/home/laurencewarne/.ghcup/env" # ghcup-env
+
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+[ -f /usr/local/bin/aws_completer ] && complete -C '/usr/local/bin/aws_completer' aws
+export FPATH="/home/laurencewarne/zsh-completions:${FPATH}"
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/laurencewarne/.sdkman"
 [[ -s "/home/laurencewarne/.sdkman/bin/sdkman-init.sh" ]] && source "/home/laurencewarne/.sdkman/bin/sdkman-init.sh"
-[ -f "/home/laurencewarne/.ghcup/env" ] && source "/home/laurencewarne/.ghcup/env" # ghcup-env
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+function exists { which $1 &> /dev/null }
+
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
