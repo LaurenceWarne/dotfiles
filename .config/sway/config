@@ -196,8 +196,8 @@ mode "$game_launcher" {
     bindsym d exec dwarf-fortress
     bindsym c exec cdda
     bindsym s exec streamlink-gui
-    bindsym D exec dolphin-emu
-    bindsym E exec desmume
+    bindsym shift+d exec dolphin-emu
+    bindsym shift+e exec desmume
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
