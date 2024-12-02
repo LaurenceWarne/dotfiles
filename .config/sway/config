@@ -223,13 +223,14 @@ exec wlsunset -l 53.483959 -L -2.244644 -t 3000 -T 5500
 # exec_always is like exec, but will be executed again on reload
 exec_always bash -c 'pkill waybar; waybar'
 exec_always bash -c '[ -f ~/Pictures/background.jpg ] && swaybg -i ~/Pictures/background.jpg'
+exec_always bash -c '[ -f ~/Pictures/background.png ] && swaybg -i ~/Pictures/background.png'
 exec_always xset b off
 exec_always xrdb ~/.Xdefaults
 exec_always xset +fp ~/.local/share/fonts
 exec_always xset fp rehash
 
 # TODO: How TF do I make each workspace tabbed?
-exec swaymsg 'workspace 9; exec urxvt; layout tabbed'
+exec swaymsg 'workspace 9; exec urxvt; exec slack; layout tabbed'
 exec swaymsg 'workspace 8; exec firefox; exec urxvt; layout tabbed; workspace 0'
 exec swaymsg 'workspace 0; exec emacs; layout tabbed'
 
