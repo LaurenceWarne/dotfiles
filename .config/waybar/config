@@ -128,25 +128,25 @@
 	"custom/amdgputop-amdgpu-usage": {
             "format": "{}%",
             "exec": "amdgpu_top -J -n 1 | python3 $HOME/.config/waybar/amdgpu_top_amdgpu.py gpu_activity.GFX.value",
-	    "interval": 2
+	    "interval": 10
         },
 
 	"custom/amdgputop-amdgpu-vram": {
             "format": "{}M",
             "exec": "amdgpu_top -J -n 1 | python3 $HOME/.config/waybar/amdgpu_top_amdgpu.py 'VRAM.Total VRAM Usage.value'",
-	    "interval": 2
+	    "interval": 10
         },
 
 	"custom/amdgputop-amdgpu-total-vram": {
             "format": "{}M",
             "exec": "amdgpu_top -J -n 1 | python3 $HOME/.config/waybar/amdgpu_top_amdgpu.py 'VRAM.Total VRAM.value'",
-	    "interval": 2
+	    "interval": 10
         },
 
 	"custom/amdgputop-amdgpu-temperature": {
             "format": "{}°C",
             "exec": "amdgpu_top -J -n 1 | python3 $HOME/.config/waybar/amdgpu_top_amdgpu.py gpu_metrics.temperature_hotspot",
-	    "interval": 2
+	    "interval": 10
         },
     },
 
