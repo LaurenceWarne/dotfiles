@@ -97,7 +97,7 @@ Install the `tabbedex` extension:
 mkdir -p $HOME/.urxvt/ext && curl -X GET https://raw.githubusercontent.com/mina86/urxvt-tabbedex/master/tabbedex > $HOME/.urxvt/ext/tabbedex
 ```
 
-Hard link `.Xresources`:
+Hard link `.Xresources`, changing `Xft.dpi` as appropriate:
 
 ```bash
 ln ~/projects/dotfiles/.Xresources ~/.Xresources

@@ -23,7 +23,7 @@ alias sbcl="rlwrap sbcl"
 alias gl="glances"
 alias tron="ssh sshtron.zachlatta.com"
 # https://github.com/sharkdp/bat
-alias bat="batcat"
+command -v bat >/dev/null 2>&1 || alias bat="batcat"
 alias less="bat"
 alias c="bat"
 
