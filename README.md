@@ -26,7 +26,7 @@ ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf # https://wiki.a
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel openssh sway swaybg waybar xorg-xwayland sddm inxi jq rust go firefox rxvt-unicode wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland sddm inxi jq rust go firefox rxvt-unicode wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol
 ```
 
 ## Setup Git and Pull Existing Config 
@@ -51,7 +51,7 @@ ln $HOME/projects/dotfiles/.gitconfig $HOME/.gitconfig
 Install [yay](https://github.com/Jguer/yay) along with AUR packages:
 
 ```
-yay -S tamzen-font siji-git ttf-ionicons ttf-font-icons
+yay -S tamzen-font siji-git ttf-ionicons ttf-font-icons nvm
 ```
 
 ## Urxvt
@@ -104,6 +104,10 @@ Opening a new shell should now prompt you to configure it.
 # https://sdkman.io/
 curl -s "https://get.sdkman.io" | bash
 sdk install java 17.0.9-graalce
+
+# https://wiki.archlinux.org/title/Node.js
+nvm install 22.12.0
+nvm use 22.12.0
 
 # https://get-coursier.io/docs/cli-installation
 curl -fL "https://github.com/coursier/launchers/raw/master/cs-$(uname -m)-pc-linux.gz" | gzip -d > ~/bin/cs && chmod +x ~/bin/cs && ~/bin/cs setup
