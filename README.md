@@ -2,7 +2,13 @@
 
 ## Installation
 
-Follow the instructions here: https://wiki.archlinux.org/title/Installation_guide and here https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LUKS_on_a_partition, making sure to follow commands in the correct sequence, which may be disjointed between pages (the encryption instructions should be explicit in which steps should be done before specific instrunctions in the former).  Emacs will make copying device UUIDs for LUKS easier:
+Follow the instructions here: https://wiki.archlinux.org/title/Installation_guide and here https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LUKS_on_a_partition, making sure to follow commands in the correct sequence, which may be disjointed between pages (the encryption instructions should be explicit in which steps should be done before specific instrunctions in the former - e.g. https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#Preparing_non-boot_partitions should be done in place of https://wiki.archlinux.org/title/Installation_guide#Format_the_partitions).  Gotchas:
+
+- In the BIOS disable secure boot
+- Make sure the live usb is booted in UEFI mode
+- Ensure that the boot partition type is set to [EFI system partition](https://wiki.archlinux.org/title/EFI_system_partition).
+
+Emacs will make copying device UUIDs for LUKS easier:
 
 ```bash
 pacstrap -K /mnt base linux linux-firmware emacs iwd man-db man-pages texinfo networkmanager
@@ -22,11 +28,19 @@ ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf # https://wiki.a
 
 `nmtui` is the easiest way to configure connections.
 
+Create users:
+
+```bash
+useradd -m -G wheel,docker -s $(which zsh) laurencewarne
+passwd laurencewarne
+chage -d 0 laurencewarne # Prompt the user to change their password on first login
+```
+
 ## Packages
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland sddm inxi jq rust go firefox rxvt-unicode wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox rxvt-unicode wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol
 ```
 
 ## Setup Git and Pull Existing Config 
