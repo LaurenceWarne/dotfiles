@@ -41,7 +41,7 @@ EDITOR=emacs visudo      # Uncomment the 'wheel' line
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox rxvt-unicode wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d
 ```
 
 To enable `sddm`, see https://wiki.archlinux.org/title/Display_manager#Loading_the_display_manager.
@@ -68,7 +68,7 @@ ln $HOME/projects/dotfiles/.gitconfig $HOME/.gitconfig
 Install [yay](https://github.com/Jguer/yay) along with AUR packages:
 
 ```
-yay -S tamzen-font siji-git ttf-ionicons ttf-font-icons nvm
+yay -S rxvt-unicode-truecolor-wide-glyphs tamzen-font siji-git ttf-ionicons ttf-font-icons nvm
 ```
 
 ## Urxvt
