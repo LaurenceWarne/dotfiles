@@ -34,14 +34,17 @@ Create users:
 useradd -m -G wheel,docker -s $(which zsh) laurencewarne
 passwd laurencewarne
 chage -d 0 laurencewarne # Prompt the user to change their password on first login
+EDITOR=emacs visudo      # Uncomment the 'wheel' line
 ```
 
 ## Packages
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox rxvt-unicode wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox rxvt-unicode wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano
 ```
+
+To enable `sddm`, see https://wiki.archlinux.org/title/Display_manager#Loading_the_display_manager.
 
 ## Setup Git and Pull Existing Config 
 
@@ -111,6 +114,20 @@ ln ~/projects/dotfiles/.zshrc ~/.zshrc
 ```
 
 Opening a new shell should now prompt you to configure it.
+
+## Custom Keyboard Layout
+
+Mostly taken from https://askubuntu.com/questions/482678/how-to-add-a-new-keyboard-layout-custom-keyboard-layout-definition, first:
+
+```bash
+curl -X GET https://raw.githubusercontent.com/LaurenceWarne/dotfiles/master/lw_custom | sudo tee /usr/share/X11/xkb/symbols/lw_custom  # sudo curl wouldn't work here since redirection is not part of the execution, tee is a common workaround
+```
+
+Now check it works using (note not necessary on wayland, we set it in `sway` config there):
+
+```bash
+setxkbmap lw_custom
+```
 
 ## Dev
 
