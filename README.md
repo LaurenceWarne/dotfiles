@@ -41,7 +41,7 @@ EDITOR=emacs visudo      # Uncomment the 'wheel' line
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d xsel
 ```
 
 To enable `sddm`, see https://wiki.archlinux.org/title/Display_manager#Loading_the_display_manager.
@@ -141,7 +141,7 @@ nvm install 22.12.0
 nvm use 22.12.0
 
 # https://get-coursier.io/docs/cli-installation
-curl -fL "https://github.com/coursier/launchers/raw/master/cs-$(uname -m)-pc-linux.gz" | gzip -d > ~/bin/cs && chmod +x ~/bin/cs && ~/bin/cs setup
+curl -fL "https://github.com/coursier/launchers/raw/master/cs-$(uname -m)-pc-linux.gz" | gzip -d > ~/.local/bin/cs && chmod +x ~/.local/bin/cs && ~/.local/bin/cs setup
 cs install metals
 ```
 
@@ -151,7 +151,6 @@ Python stuff:
 pipx install pip-run legendary-gl glances mypy tox grip black curses-questions nox protontricks awsume litecli sacad streamlink pulsemixer python-lsp-server ruff dtbell
 pipx inject python-lsp-server 'python-lsp-server[rope]' pylsp-mypy python-lsp-ruff
 ```
-
 
 ## Random Stuff
 - [heroic](https://github.com/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest)
