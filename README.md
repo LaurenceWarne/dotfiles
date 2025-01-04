@@ -16,12 +16,14 @@ pacstrap -K /mnt base linux linux-firmware emacs iwd man-db man-pages texinfo ne
 
 GRUB can be installed using instructions from https://wiki.archlinux.org/title/GRUB#Installation, be sure to generate a [main configuration file](https://wiki.archlinux.org/title/GRUB#Configuration) using `grub-mkconfig -o /boot/grub/grub.cfg`.
 
-Next ensure all services are enabled:
+Let's enable some services!
 
 ```bash
 systemctl enable iwd.service --now
 systemctl enable NetworkManager.service --now
 systemctl enable systemd-resolved.service --now
+# Note this starts the service on boot which can impede load times, alternatives: https://wiki.archlinux.org/title/Docker
+systemctl enable docker.service --now
 
 ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf # https://wiki.archlinux.org/title/Systemd-resolved#DNS
 ```
@@ -41,9 +43,9 @@ EDITOR=emacs visudo      # Uncomment the 'wheel' line
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d xsel evince noto-fonts noto-fonts-emoji noto-fonts-extra xorg-xfd
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker sddm inxi jq rust go firefox wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d xsel evince noto-fonts noto-fonts-emoji noto-fonts-extra xorg-xfd ripgrep mlocate julia pypy3 openvpn sage latte-integrale bash-completion
 # Games stuff
-pacman -S desmume ppsspp dolphin-emu prismlauncher
+pacman -S desmume ppsspp dolphin-emu prismlauncher cataclysm-dda-tiles
 ```
 
 To enable `sddm`, see https://wiki.archlinux.org/title/Display_manager#Loading_the_display_manager.
@@ -63,6 +65,7 @@ ln $HOME/projects/dotfiles/.bash_aliases $HOME/.bash_aliases
 ln $HOME/projects/dotfiles/.zprofile $HOME/.zprofile
 rm $HOME/.gitconfig
 ln $HOME/projects/dotfiles/.gitconfig $HOME/.gitconfig
+mkdir $HOME/.ssh && echo 'Host *\n    AddKeysToAgent yes' > $HOME/.ssh/config
 ```
 
 ### yay
@@ -70,8 +73,8 @@ ln $HOME/projects/dotfiles/.gitconfig $HOME/.gitconfig
 Install [yay](https://github.com/Jguer/yay) along with AUR packages:
 
 ```
-yay -S rxvt-unicode-truecolor-wide-glyphs tamzen-font siji-git ttf-ionicons ttf-font-icons nvm heroic-games-launcher-bin
-yay -S heroic-games-launcher-bin
+yay -S rxvt-unicode-truecolor-wide-glyphs tamzen-font siji-git ttf-ionicons ttf-font-icons heroic-games-launcher-bin abcde aws-cli-v2
+yay -S heroic-games-launcher-bin dfhack
 ```
 
 ## Urxvt
@@ -140,6 +143,7 @@ curl -s "https://get.sdkman.io" | bash
 sdk install java 17.0.9-graalce
 
 # https://wiki.archlinux.org/title/Node.js
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/latest/install.sh | bash
 nvm install 22.12.0
 nvm use 22.12.0
 

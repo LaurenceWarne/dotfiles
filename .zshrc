@@ -44,7 +44,7 @@ fi
 
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
-[ -f /usr/local/bin/aws_completer ] && complete -C '/usr/local/bin/aws_completer' aws
+[ -f $(which aws_completer) ] && complete -C $(which aws_completer) aws
 export FPATH="/home/laurencewarne/zsh-completions:${FPATH}"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

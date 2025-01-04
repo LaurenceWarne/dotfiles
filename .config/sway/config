@@ -177,12 +177,12 @@ set $mode_launcher Launch: [e]macs [f]irefox [h]eroic [m]usic=vlc [s]team [z]oom
 bindsym $mod+o mode "$mode_launcher"
 
 mode "$mode_launcher" {
-    bindsym e exec emacs
-    bindsym f exec firefox
-    bindsym h exec heroic
-    bindsym m exec "vlc --no-playlist-autostart ~/Music/*"
-    bindsym s exec steam
-    bindsym z exec zoom
+    bindsym e exec emacs; mode default
+    bindsym f exec firefox; mode default
+    bindsym h exec heroic; mode default
+    bindsym m exec "vlc --no-playlist-autostart ~/Music/*"; mode default
+    bindsym s exec steam; mode default
+    bindsym z exec zoom; mode default
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -192,12 +192,12 @@ set $game_launcher Launch: [m]inecraft [d]warf-fortress [c]ataclysm-dda [s]tream
 bindsym $mod+p mode "$game_launcher"
 
 mode "$game_launcher" {
-    bindsym m exec minecraft
-    bindsym d exec dwarf-fortress
-    bindsym c exec cdda
-    bindsym s exec streamlink-gui
-    bindsym shift+d exec dolphin-emu
-    bindsym shift+e exec desmume
+    bindsym m exec prismlauncher; mode default
+    bindsym d exec dfhack | dwarffortress; mode default
+    bindsym c exec cataclysm-tiles | cataclysm; mode default
+    bindsym s exec streamlink-gui; mode default
+    bindsym shift+d exec dolphin-emu; mode default
+    bindsym shift+e exec desmume; mode default
 
     bindsym Escape mode "default"
     bindsym Return mode "default"
