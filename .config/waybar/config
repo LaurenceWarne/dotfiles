@@ -14,7 +14,16 @@
 	"name": "topbar",
         "layer": "top",
         "position": "top", 
-	"modules-left": ["sway/language", "custom/gpu-icon", "custom/amdgputop-amdgpu-usage", "custom/amdgputop-amdgpu-vram", "custom/amdgputop-amdgpu-temperature", "sway/window", "keyboard-state", "sway/mode"],
+	"modules-left": [
+	  "sway/language",
+	  "custom/gpu-icon",
+	  // "custom/amdgputop-amdgpu-usage",
+	  // "custom/amdgputop-amdgpu-vram",
+	  // "custom/amdgputop-amdgpu-temperature",
+	  "sway/window",
+	  "keyboard-state",
+	  "sway/mode"
+	],
 	"modules-center": ["sway/workspaces"],
 	"modules-right": ["pulseaudio", "clock"],
 	"tray": {
@@ -67,16 +76,6 @@
 	    "on-click": "pavucontrol",
 	},
 		
-	"temperature": {
-	    // "thermal-zone": 2,
-	    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-	    "critical-threshold": 80,
-	    // "format-critical": "{temperatureC}°C {icon}",
-	    "format": "{temperatureC}°C {icon}",
-	    "format-icons": ["", "", "", "", ""],
-	    "tooltip": false,
-	},
-	
 	"backlight": {
 	    "device": "intel_backlight",
 	    "format": "{percent}% {icon}",
@@ -97,6 +96,17 @@
 	    "on-update": "$HOME/.config/waybar/scripts/check_battery.sh",
 	},
 
+        // https://github.com/Alexays/Waybar/wiki/Module:-Temperature
+	"temperature": {
+	    // "thermal-zone": 2,
+	    "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+	    "critical-threshold": 80,
+	    // "format-critical": "{temperatureC}°C {icon}",
+	    "format": "{temperatureC}°C {icon}",
+	    "format-icons": ["", "", "", "", ""],
+	    "tooltip": false,
+	},
+	
 	"custom/gpu-icon": {
 	    // https://pictogrammers.com/library/mdi/icon/expansion-card-variant/
             "format": "<b>󰾲</b> ",
@@ -155,7 +165,7 @@
         "name": "bottombar",
         "layer": "top",
         "position": "bottom",
-        "modules-left": ["disk", "cpu", "memory"],
+        "modules-left": ["disk", "cpu", "temperature", "memory"],
         "modules-center": [],
         "modules-right": ["network"],
 	"height": 50, // Waybar height (to be removed for auto height)

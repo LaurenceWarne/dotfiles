@@ -45,7 +45,7 @@ EDITOR=emacs visudo      # Uncomment the 'wheel' line
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker docker-compose sddm inxi jq rust go firefox wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d xsel evince noto-fonts noto-fonts-emoji noto-fonts-extra xorg-xfd ripgrep mlocate julia pypy3 openvpn sage latte-integrale bash-completion thunderbird libnotify mako postgresql cronie bind net-tools wine lshw lm_sensors lib32-libpulse nwg-look mangohud htop texlive-latex texlive-latexrecommended texlive-latexextra texlive-fontsrecommended texlive-fontsextra  texlive-bibtexextra texlive-mathscience texlive-plaingeneric primecount xorg-xhost xorg-xlsclients xorg-xeyes aspell hunspell libnma
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker docker-compose sddm inxi jq rust go firefox wlsunset zsh vlc logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d xsel evince noto-fonts noto-fonts-emoji noto-fonts-extra xorg-xfd ripgrep mlocate julia pypy3 openvpn sage latte-integrale bash-completion thunderbird libnotify mako postgresql cronie bind net-tools wine lshw lm_sensors lib32-libpulse nwg-look mangohud htop texlive-latex texlive-latexrecommended texlive-latexextra texlive-fontsrecommended texlive-fontsextra  texlive-bibtexextra texlive-mathscience texlive-plaingeneric primecount primesieve xorg-xhost xorg-xlsclients xorg-xeyes aspell hunspell libnma
 # Games stuff
 pacman -S desmume ppsspp dolphin-emu prismlauncher cataclysm-dda-tiles
 ```
@@ -75,7 +75,7 @@ mkdir $HOME/.ssh && echo 'Host *\n    AddKeysToAgent yes' > $HOME/.ssh/config
 Install [yay](https://github.com/Jguer/yay) along with AUR packages:
 
 ```
-yay -S rxvt-unicode-truecolor-wide-glyphs tamzen-font siji-git ttf-ionicons ttf-font-icons heroic-games-launcher-bin abcde aws-cli-v2 openvpn-update-systemd-resolved aws-session-manager-plugin
+yay -S rxvt-unicode-truecolor-wide-glyphs tamzen-font siji-git ttf-ionicons ttf-font-icons heroic-games-launcher-bin abcde aws-cli-v2 openvpn-update-systemd-resolved aws-session-manager-plugin primesum
 yay -S heroic-games-launcher-bin dfhack protontricks
 ```
 
