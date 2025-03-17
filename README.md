@@ -14,6 +14,8 @@ Emacs will make copying device UUIDs for LUKS easier:
 pacstrap -K /mnt base linux linux-firmware emacs iwd man-db man-pages texinfo networkmanager
 ```
 
+You may need to `pacman-key --refresh-keys` if your USB image is old.
+
 GRUB can be installed using instructions from https://wiki.archlinux.org/title/GRUB#Installation, be sure to generate a [main configuration file](https://wiki.archlinux.org/title/GRUB#Configuration) using `grub-mkconfig -o /boot/grub/grub.cfg`.
 
 Let's enable some services!
