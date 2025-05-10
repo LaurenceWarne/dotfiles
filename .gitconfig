@@ -3,7 +3,7 @@
     email = laurencewarne@gmail.com
 
 [url "ssh://git@github.com/"]
-    insteadOf = https://github.com/
+    pushInsteadOf = https://github.com/
 
 [alias]
     # one-line log
@@ -38,3 +38,5 @@
     ls = ls-tree --full-tree -r --name-only HEAD
 [github]
 	user = LaurenceWarne
+[http]
+	postBuffer = 524288000
