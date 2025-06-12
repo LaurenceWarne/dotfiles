@@ -17,14 +17,14 @@ fi
 
 export TERM="xterm-256color"
 
-PATH="/home/laurencewarne/perl5/bin${PATH:+:${PATH}}"
-PATH="$PATH:/home/laurencewarne/.local/share/coursier/bin:/home/laurencewarne/bin:/sbin:/home/laurencewarne/.local/bin:/snap/bin:/usr/local/texlive/2021/bin/x86_64-linux"
+PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
+PATH="$PATH:$HOME/.local/share/coursier/bin:$HOME/bin:/sbin:$HOME/.local/bin:/snap/bin:/usr/local/texlive/2021/bin/x86_64-linux"
 [ -d /usr/local/src/node-v16.15.1-linux-x64 ] && PATH="$PATH:/usr/local/src/node-v16.15.1-linux-x64/bin"
 export PATH
-PERL5LIB="/home/laurencewarne/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/laurencewarne/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/laurencewarne/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/laurencewarne/perl5"; export PERL_MM_OPT;
+PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"$HOME/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -38,18 +38,18 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
-#[ -f "/home/laurencewarne/.ghcup/env" ] && source "/home/laurencewarne/.ghcup/env" # ghcup-env
+#[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
-[ -f "/home/laurencewarne/.ghcup/env" ] && source "/home/laurencewarne/.ghcup/env" # ghcup-env
+[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env" # ghcup-env
 
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 [ -f $(which aws_completer) ] && complete -C $(which aws_completer) aws
-export FPATH="/home/laurencewarne/zsh-completions:${FPATH}"
+export FPATH="$HOME/zsh-completions:${FPATH}"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/laurencewarne/.sdkman"
-[[ -s "/home/laurencewarne/.sdkman/bin/sdkman-init.sh" ]] && source "/home/laurencewarne/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
