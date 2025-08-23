@@ -162,4 +162,11 @@ pipx install pip-run legendary-gl glances mypy tox grip black curses-questions n
 pipx inject python-lsp-server 'python-lsp-server[rope]' pylsp-mypy python-lsp-ruff
 ```
 
-## Random Stuff
+## Debugging
+
+For slow startup, try one of these:
+
+```bash
+systemd-analyze critical-chain
+systemd-analyze blame
+```

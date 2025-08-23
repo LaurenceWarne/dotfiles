@@ -1,10 +1,3 @@
-# Custom sway  it's an edited version of the standard config in /etc/i3/config
-#
-# Current keyboard has no right hand win key so all the keybindings will use keys
-# pressed by the right hand (touch typing).
-#
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
-
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY SWAYSOCK XDG_CURRENT_DESKTOP=sway XDG_SESSION_DESKTOP=sway
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -16,17 +9,6 @@ input * {
 }
 
 exec --no-startup-id sh -c 'xrandr --output VGA-0 --auto --right-of HDMI-0'
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
-
-# Before i3 v4.8, we used to recommend this one as the default:
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
