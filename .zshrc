@@ -18,7 +18,7 @@ fi
 export TERM="xterm-256color"
 
 PATH="$HOME/perl5/bin${PATH:+:${PATH}}"
-PATH="$PATH:$HOME/.local/share/coursier/bin:$HOME/bin:/sbin:$HOME/.local/bin:/snap/bin:/usr/local/texlive/2021/bin/x86_64-linux"
+PATH="$PATH:$HOME/.local/share/coursier/bin:$HOME/bin:/sbin:$HOME/.local/bin:/snap/bin:/usr/local/texlive/2021/bin/x86_64-linux:$HOME/go/bin"
 [ -d /usr/local/src/node-v16.15.1-linux-x64 ] && PATH="$PATH:/usr/local/src/node-v16.15.1-linux-x64/bin"
 export PATH
 PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
