@@ -220,6 +220,11 @@ exec swaymsg 'workspace 0; exec emacs; layout tabbed'
 
 exec export DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
 
+# See https://wiki.archlinux.org/title/Dark_mode_switching
+exec export GTK_THEME=Adwaita:dark
+exec export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+exec export QT_STYLE_OVERRIDE=Adwaita-Dark
+
 exec mako
 
 #######################################################################
