@@ -190,6 +190,8 @@ mode "$game_launcher" {
 # You can find the key name for any key using `xev`
 bindsym $mod+equal exec pavucontrol  # Also see https://github.com/GeorgeFilipkin/pulsemixer
 
+bindsym $mod+s exec systemctl suspend
+
 # Disable window title bars
 for_window [class=".*"] border pixel 0
 
