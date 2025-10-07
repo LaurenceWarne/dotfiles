@@ -165,7 +165,7 @@ mode "$mode_launcher" {
     bindsym f exec firefox; mode default
     bindsym h exec heroic; mode default
     bindsym m exec "vlc --no-playlist-autostart ~/Music/*"; mode default
-    bindsym s exec steam; mode default
+    bindsym s exec env MANGOHUD=1 steam; mode default
     bindsym z exec zoom; mode default
 
     bindsym Escape mode "default"
