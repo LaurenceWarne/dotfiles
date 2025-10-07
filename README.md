@@ -27,6 +27,7 @@ systemctl enable systemd-resolved.service --now
 # Note this starts the service on boot which can impede load times, alternatives: https://wiki.archlinux.org/title/Docker
 systemctl enable docker.service --now
 systemctl enable ntpd.service --now
+systemctl enable avahi-daemon.service --now
 
 ln -sf ../run/systemd/resolve/stub-resolv.conf /etc/resolv.conf # https://wiki.archlinux.org/title/Systemd-resolved#DNS
 ```
@@ -46,7 +47,7 @@ EDITOR=emacs visudo      # Uncomment the 'wheel' line
 
 ```
 pacman -Sy
-pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker docker-compose sddm inxi jq rust go firefox wlsunset zsh vlc vlc-plugins-all logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx python-igraph python-pygraphviz python-boto3 pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d xsel evince noto-fonts noto-fonts-emoji noto-fonts-extra xorg-xfd ripgrep mlocate julia pypy3 openvpn sage latte-integrale bash-completion thunderbird libnotify mako postgresql cronie bind net-tools wine lshw lm_sensors lib32-libpulse nwg-look mangohud htop texlive-latex texlive-latexrecommended texlive-latexextra texlive-fontsrecommended texlive-fontsextra texlive-bibtexextra texlive-mathscience texlive-plaingeneric texlive-binextra primecount primesieve xorg-xhost xorg-xlsclients xorg-xeyes aspell hunspell libnma nmap 7zip libreoffice-still actionlint ntp pass sqlfluff openh264 php qemu-user-static pandoc-cli wireshark-qt wireshark-cli
+pacman -S sudo git base-devel alsa-firmware alsa-utils sof-firmware pulseaudio pulseaudio-alsa openssh sway swaybg waybar xorg-xwayland docker docker-compose sddm inxi jq rust go firefox wlsunset zsh vlc vlc-plugins-all logrotate slurp grim bat otf-font-awesome ttf-font-awesome powerline powerline-fonts nerd-fonts ttc-iosevka xorg-xrdb eog zip unzip curl python-pipx python-igraph python-pygraphviz python-boto3 pavucontrol neofetch nano fuse2 fuse3 imagemagick webkitgtk-6.0 webkit2gtk-4.1 libgccjit libxpm xaw3d xsel evince noto-fonts noto-fonts-emoji noto-fonts-extra xorg-xfd ripgrep mlocate julia pypy3 openvpn sage latte-integrale bash-completion thunderbird libnotify mako postgresql cronie bind net-tools wine lshw lm_sensors lib32-libpulse nwg-look mangohud htop texlive-latex texlive-latexrecommended texlive-latexextra texlive-fontsrecommended texlive-fontsextra texlive-bibtexextra texlive-mathscience texlive-plaingeneric texlive-binextra primecount primesieve xorg-xhost xorg-xlsclients xorg-xeyes aspell hunspell libnma nmap 7zip libreoffice-still actionlint ntp pass sqlfluff openh264 php qemu-user-static pandoc-cli wireshark-qt wireshark-cli libmicrodns protobuf nss-mdns
 # Games stuff
 pacman -S desmume ppsspp dolphin-emu prismlauncher cataclysm-dda-tiles
 ```
