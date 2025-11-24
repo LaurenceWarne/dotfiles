@@ -12,6 +12,7 @@ alias cp='cp -f'
 alias rm='rm -f'
 alias lpstat='lpstat -l'
 alias ip='ip -c'
+alias watch='watch --color'
 
 ## Cool Stuff
 # See https://github.com/chubin/wttr.in
