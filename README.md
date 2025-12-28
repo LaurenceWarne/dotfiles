@@ -69,6 +69,7 @@ ln $HOME/projects/dotfiles/.bash_aliases $HOME/.bash_aliases
 ln $HOME/projects/dotfiles/.zprofile $HOME/.zprofile
 rm $HOME/.gitconfig
 ln $HOME/projects/dotfiles/.gitconfig $HOME/.gitconfig
+ln -s $HOME/projects/dotfiles/.ipython $HOME/.ipython
 mkdir $HOME/.ssh && echo 'Host *\n    AddKeysToAgent yes' > $HOME/.ssh/config
 ```
 
