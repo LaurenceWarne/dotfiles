@@ -1,0 +1,212 @@
+config-version = 2
+
+# AeroSpace config - converted from a sway/i3 config.
+# https://github.com/nikitabobko/AeroSpace
+#
+# MODIFIER KEY: AeroSpace has no native way to distinguish left vs right
+# Option (there's no "lalt" - only cmd/alt/ctrl/shift, matching either side).
+# So every binding here uses `ctrl-alt` as the prefix, and Karabiner-Elements
+# is used to remap the LEFT Option key specifically -> Left Control + Left
+# Option. Karabiner can target left_option alone (unlike AeroSpace), so
+# pressing left Option triggers the ctrl-alt bindings below, while right
+# Option is left completely untouched for normal use (accented characters,
+# etc). See karabiner-left-option-mod.json.
+#
+# IMPORTANT - things from the sway config that have NO AeroSpace equivalent
+# and are NOT represented below (AeroSpace only does window tiling, not a
+# full compositor):
+#   - `input * { xkb_layout ... }`      -> set keyboard layout in System Settings
+#   - waybar, mako, wlsunset, swaybg    -> use menu-bar apps / Night Shift /
+#                                          System Settings wallpaper instead
+#   - xrandr output layout              -> use System Settings > Displays
+#   - dbus/systemd env exports, GTK theme env vars -> not applicable on macOS
+#   - Print-screen -> grim/slurp/zenity -> use macOS screenshot tool
+#     (Cmd+Shift+4) or bind it via Hammerspoon/skhd if you want a custom flow
+#   - dmenu_run                         -> mapped to Raycast/Alfred below,
+#                                          change to whatever launcher you use
+#   - urxvt                             -> mapped to `open -na` <YourTerminal>,
+#                                          change to iTerm/Alacritty/kitty/etc.
+
+start-at-login = true
+
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+# ------------------------------------------------------------------
+# Startup apps + auto-routing to workspaces
+# (equivalent of the sway `exec swaymsg 'workspace N; exec app'` lines)
+#
+# Replace the app-id values below with the real bundle IDs on your machine.
+# Find one with: osascript -e 'id of app "Firefox"'
+# or:            mdls -name kMDItemCFBundleIdentifier -r /Applications/Firefox.app
+# ------------------------------------------------------------------
+after-startup-command = [
+    "exec-and-forget open -a Emacs",
+    "exec-and-forget open -na WezTerm --args start --always-new-process -- sh -c 'printf \\033]0;ws9-term\\007; exec $SHELL'",
+    "exec-and-forget open -a Firefox",
+    "exec-and-forget open -na WezTerm --args start --always-new-process -- sh -c 'printf \\033]0;ws8-term\\007; exec $SHELL'",
+]
+
+[[on-window-detected]]
+if.app-id = 'org.gnu.Emacs'
+run = 'move-node-to-workspace 0'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = 'move-node-to-workspace 8'
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+if.window-title-regex-substring = 'ws9-term'
+run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-id = 'com.github.wez.wezterm'
+if.window-title-regex-substring = 'ws8-term'
+run = 'move-node-to-workspace 8'
+
+[gaps]
+inner.horizontal = 0
+inner.vertical = 0
+outer.left = 0
+outer.right = 0
+outer.top = 0
+outer.bottom = 0
+
+# ------------------------------------------------------------------
+# Main mode
+# ------------------------------------------------------------------
+[mode.main.binding]
+
+# original custom focus keys: up=l down=k left=j right=semicolon
+ctrl-alt-j = 'focus --boundaries-action wrap-around-the-workspace left'
+ctrl-alt-k = 'focus --boundaries-action wrap-around-the-workspace down'
+ctrl-alt-l = 'focus --boundaries-action wrap-around-the-workspace up'
+ctrl-alt-semicolon = 'focus --boundaries-action wrap-around-the-workspace right'
+
+# arrow-key focus (also bound in the original)
+ctrl-alt-left = 'focus --boundaries-action wrap-around-the-workspace left'
+ctrl-alt-down = 'focus --boundaries-action wrap-around-the-workspace down'
+ctrl-alt-up = 'focus --boundaries-action wrap-around-the-workspace up'
+ctrl-alt-right = 'focus --boundaries-action wrap-around-the-workspace right'
+
+# move focused window
+ctrl-alt-shift-left = 'move left'
+ctrl-alt-shift-down = 'move down'
+ctrl-alt-shift-up = 'move up'
+ctrl-alt-shift-right = 'move right'
+
+# terminal - WezTerm
+ctrl-alt-enter = 'exec-and-forget open -na WezTerm'
+
+# close focused window (was `kill`)
+ctrl-alt-u = 'close'
+
+# app launcher - replace with Alfred/Spotlight if you don't use Raycast
+ctrl-alt-d = 'exec-and-forget open -a Raycast'
+
+# AeroSpace has no manual "split h/v" like i3/sway; `join-with` is the
+# closest analogue (merges the focused window into an adjacent container)
+ctrl-alt-h = 'join-with left'
+ctrl-alt-v = 'join-with down'
+
+# fullscreen toggle
+ctrl-alt-i = 'fullscreen'
+
+# layout - AeroSpace has tiles/accordion, not stacking/tabbed, so this is
+# an approximation rather than an exact match
+ctrl-alt-n = 'layout tiles'
+ctrl-alt-m = 'layout accordion'
+
+# floating toggle
+ctrl-alt-shift-space = 'layout floating tiling'
+
+# NOTE: sway's "focus parent" has no AeroSpace equivalent - the tree model
+# only exposes focus left/down/up/right, focus-back-and-forth, and
+# focus-monitor. There's nothing to bind here for ctrl-alt-a.
+
+# AeroSpace has no scratchpad; emulate one with a dedicated workspace
+ctrl-alt-shift-minus = 'move-node-to-workspace S'
+ctrl-alt-minus = 'workspace S'
+
+# workspaces
+ctrl-alt-1 = 'workspace 1'
+ctrl-alt-2 = 'workspace 2'
+ctrl-alt-3 = 'workspace 3'
+ctrl-alt-4 = 'workspace 4'
+ctrl-alt-5 = 'workspace 5'
+ctrl-alt-6 = 'workspace 6'
+ctrl-alt-7 = 'workspace 7'
+ctrl-alt-8 = 'workspace 8'
+ctrl-alt-9 = 'workspace 9'
+ctrl-alt-0 = 'workspace 0'
+
+# move focused window to workspace
+ctrl-alt-shift-1 = 'move-node-to-workspace 1'
+ctrl-alt-shift-2 = 'move-node-to-workspace 2'
+ctrl-alt-shift-3 = 'move-node-to-workspace 3'
+ctrl-alt-shift-4 = 'move-node-to-workspace 4'
+ctrl-alt-shift-5 = 'move-node-to-workspace 5'
+ctrl-alt-shift-6 = 'move-node-to-workspace 6'
+ctrl-alt-shift-7 = 'move-node-to-workspace 7'
+ctrl-alt-shift-8 = 'move-node-to-workspace 8'
+ctrl-alt-shift-9 = 'move-node-to-workspace 9'
+ctrl-alt-shift-0 = 'move-node-to-workspace 0'
+
+# submodes
+ctrl-alt-r = 'mode resize'
+ctrl-alt-o = 'mode launcher'
+
+# reload config
+ctrl-alt-shift-r = 'reload-config'
+
+# quit AeroSpace (closest match to sway's `exit`)
+ctrl-alt-shift-e = 'exec-and-forget osascript -e "tell application \"AeroSpace\" to quit"'
+
+# suspend - AeroSpace has no suspend command, shell out to pmset
+ctrl-alt-s = 'exec-and-forget pmset sleepnow'
+
+# volume/media keys are handled natively by macOS hardware keys and don't
+# need WM bindings; XF86Audio* keys don't exist on macOS
+
+# open Sound settings (rough equivalent of pavucontrol)
+ctrl-alt-equal = 'exec-and-forget open -b com.apple.systempreferences /System/Library/PreferencePanes/Sound.prefPane'
+
+# ------------------------------------------------------------------
+# Resize submode (same 10px-ish step sizes as the original mode "resize")
+# ------------------------------------------------------------------
+[mode.resize.binding]
+j = 'resize width -50'
+k = 'resize height +50'
+l = 'resize height -50'
+semicolon = 'resize width +50'
+left = 'resize width -50'
+down = 'resize height +50'
+up = 'resize height -50'
+right = 'resize width +50'
+enter = 'mode main'
+esc = 'mode main'
+
+# ------------------------------------------------------------------
+# App launcher submode (was `$mode_launcher`)
+# Replace each `open -a AppName` with the actual macOS app name/bundle id.
+# ------------------------------------------------------------------
+[mode.launcher.binding]
+e = ['exec-and-forget open -a Emacs', 'mode main']
+f = ['exec-and-forget open -a Firefox', 'mode main']
+m = ['exec-and-forget open -a VLC', 'mode main']
+z = ['exec-and-forget open -a zoom.us', 'mode main']
+esc = 'mode main'
+enter = 'mode main'
+
+# ------------------------------------------------------------------
+# Workspace-to-monitor assignment (rough equivalent of the sway
+# `workspace N output ...` lines). Replace 'main'/'secondary' with your
+# actual monitor names - run `aerospace list-monitors` to see them.
+# ------------------------------------------------------------------
+[workspace-to-monitor-force-assignment]
+0 = 'main'
+9 = 'main'
+8 = 'secondary'
